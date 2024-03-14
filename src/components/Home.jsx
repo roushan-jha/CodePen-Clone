@@ -6,11 +6,12 @@ import { motion } from "framer-motion"
 import { Link, Route, Routes } from 'react-router-dom';
 import { Logo } from "../assets"
 import { Projects, SignUp } from "../components"
+import { useSelector } from 'react-redux'
 
 
 const Home = () => {
   const [isSideMenu, setIsSideMenu] = useState(false);
-  const [user, setUser] = useState(null);
+  const user = useSelector(state => state.user?.user);
   return (
     <>
       <div className='flex'>
