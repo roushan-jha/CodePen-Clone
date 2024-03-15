@@ -5,7 +5,7 @@ import {FaSearchengin} from "react-icons/fa6"
 import { motion } from "framer-motion"
 import { Link, Route, Routes } from 'react-router-dom';
 import { Logo } from "../assets"
-import { Projects, SignUp } from "../components"
+import { ProfileDetails, Projects, SignUp } from "../components"
 import { useSelector } from 'react-redux'
 
 
@@ -49,7 +49,7 @@ const Home = () => {
             )}
 
             {user && (
-              <div></div>
+              <ProfileDetails />
             )}
         </div>
         <div className='w-full'>

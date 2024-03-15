@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
-import { Home, Spinner } from './components'
+import { Home, NewProject, Spinner } from './components'
 import { useEffect, useState } from 'react';
 import { auth, db } from './config/firebase.config';
 import { doc, setDoc } from 'firebase/firestore';
@@ -40,6 +40,7 @@ function App() {
         <div>
       <Routes>
         <Route path="/home/*" element={<Home />} />
+        <Route path="/newProject" element={<NewProject />} />
         {/* If the route is not matching */}
         <Route path="*" element={<Navigate to={"/home"} /> } />
       </Routes>
