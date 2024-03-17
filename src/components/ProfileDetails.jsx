@@ -15,7 +15,7 @@ const ProfileDetails = () => {
             {
                 user?.photoURL ? 
                 <>
-                    <motion.div whileTap={{scale: 1.2}} src={user?.photoURL} alt={user?.displayName} referrerPolicy="no-referrer" className='w-full h-full object-cover' />
+                    <motion.img whileTap={{scale: 1.2}} src={user?.photoURL} alt={user?.displayName} referrerPolicy="no-referrer" className='w-full h-full object-cover' />
                 </> : 
                     <p className='text-xl text-white font-semibold capitalize'>
                         {user?.email[0]}    

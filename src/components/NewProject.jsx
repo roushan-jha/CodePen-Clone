@@ -192,7 +192,7 @@ const NewProject = () => {
             </SplitPane>
 
             {/* bottom result section */}
-            <div className='bg-white' style={{ overflow : "hidden", height : "100%" }}>
+            <div className='bg-white overflow-hidden' style={{ overflow : "hidden", height : "100%" }}>
                   <iframe 
                   title='Result'
                   srcDoc={output}

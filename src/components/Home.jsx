@@ -6,12 +6,15 @@ import { motion } from "framer-motion"
 import { Link, Route, Routes } from 'react-router-dom';
 import { Logo } from "../assets"
 import { ProfileDetails, Projects, SignUp } from "../components"
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { SET_SEARCH_TERM } from "../context/actions/searchActions"
 
 
 const Home = () => {
   const [isSideMenu, setIsSideMenu] = useState(false);
   const user = useSelector(state => state.user?.user);
+  const searchTerm = useSelector(state => state.searchTerm?.searchTerm ? state.searchTerm.searchTerm : "");
+  const dispatch = useDispatch();
   return (
     <>
       <div className='flex'>
@@ -40,7 +43,10 @@ const Home = () => {
         <div className='w-full flex items-center justify-between gap-3'>
             <div className='bg-secondary w-full px-4 py-3 rounded-md flex items-center justify-center gap-3'>
               <FaSearchengin className='text-2xl text-primaryText ' />
-              <input type='text' className='flex-1 px-4 py-1 text-xl bg-transparent outline-none border-none text-primaryText placeholder:text-gray-600' placeholder="Search here..." />
+              <input 
+              value={searchTerm}
+              onChange={(e) => dispatch(SET_SEARCH_TERM(e.target.value))}
+              type='text' className='flex-1 px-4 py-1 text-xl bg-transparent outline-none border-none text-primaryText placeholder:text-gray-600' placeholder="Search here..." />
             </div>
             {!user && (
               <motion.div whileTap={{scale:0.9}} className='flex items-center justify-center gap-3'>
